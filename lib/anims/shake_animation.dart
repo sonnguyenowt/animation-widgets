@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 
 class ShakeWidget extends StatefulWidget {
   final Widget child;
+
   final Duration duration;
+
   final bool repeat;
+
   final double amplitude;
+
   final Axis? direction;
+
   final Curve curve;
 
   const ShakeWidget({
@@ -79,7 +84,7 @@ class _ShakeWidgetState extends State<ShakeWidget>
         }
         return Transform.translate(
           offset: offset,
-          child: widget.child,
+          child: child,
         );
       },
       child: widget.child,

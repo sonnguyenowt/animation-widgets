@@ -74,7 +74,7 @@ class _ScreenBottomNavbarAnimationState
               ),
             ),
             const Spacer(),
-            _bottomAppbarAnim(icons, colors, width: 250),
+            // _bottomAppbarAnim(icons, colors, width: 250),
             const SizedBox(width: double.infinity),
           ],
         ),
