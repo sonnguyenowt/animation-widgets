@@ -4,6 +4,8 @@ import '/anims/shake_animation.dart';
 import '/anims/ripple_animation.dart';
 import 'package:flutter/material.dart';
 
+import 'bottom_navbar_floating_anim.dart';
+
 class ScreenBottomNavbarAnimation extends StatelessWidget {
   const ScreenBottomNavbarAnimation({super.key});
 
@@ -45,7 +47,7 @@ class ScreenBottomNavbarAnimation extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const BottomNavbarAnim(width: 250),
+            const BottomNavbarFloatingAnimation(),
             const SizedBox(width: double.infinity),
           ],
         ),
