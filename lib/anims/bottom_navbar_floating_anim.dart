@@ -15,10 +15,10 @@ class _BottomNavbarFloatingAnimationState
   bool isExpanded = false;
 
   var items = [
-    Icons.abc,
-    Icons.abc,
-    Icons.abc,
-    Icons.abc,
+    Icons.home,
+    Icons.shop,
+    Icons.notifications_active,
+    Icons.person,
   ];
   @override
   Widget build(BuildContext context) {
@@ -153,18 +153,25 @@ class _BottomNavbarFloatingAnimationState
             ),
             child: Row(
               children: [
-                ...items.map((e) => Expanded(child: _itemButton(e))),
+                for (var i = 0; i < items.length / 2; i++)
+                  Expanded(child: _itemButton(items[i])),
+                const SizedBox(width: 60),
+                for (int j = items.length ~/ 2; j < items.length; j++)
+                  Expanded(child: _itemButton(items[j])),
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                isExpanded = !isExpanded;
-              });
-            },
-            child: const CircleAvatar(
-              child: Icon(Icons.add),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  isExpanded = !isExpanded;
+                });
+              },
+              child: const CircleAvatar(
+                child: Icon(Icons.add),
+              ),
             ),
           ),
         ],
