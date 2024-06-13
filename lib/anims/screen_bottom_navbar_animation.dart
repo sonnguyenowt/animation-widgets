@@ -1,4 +1,4 @@
-import 'package:anim_app/anims/bottom_navbar_anim.dart';
+// import 'package:anim_app/anims/bottom_navbar_anim.dart';
 
 import '/anims/shake_animation.dart';
 import '/anims/ripple_animation.dart';
@@ -13,44 +13,42 @@ class ScreenBottomNavbarAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: const Color(0xff34325E),
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width,
-              height: 400,
-              child: Column(
-                children: [
-                  ShakeWidget(
+      backgroundColor: const Color.fromARGB(255, 255, 158, 190),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: MediaQuery.of(context).size.width,
+            height: 400,
+            child: Column(
+              children: [
+                ShakeWidget(
+                  repeat: true,
+                  duration: const Duration(seconds: 2),
+                  amplitude: 2,
+                  child: RippleAnimation(
                     repeat: true,
-                    duration: const Duration(seconds: 2),
-                    amplitude: 2,
-                    child: RippleAnimation(
-                      repeat: true,
-                      ripplesCount: 3,
-                      minRadius: 20,
-                      color: Colors.pink,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.pink.withOpacity(0.8),
-                        child: const Icon(
-                          Icons.favorite,
-                          color: Colors.white,
-                        ),
+                    ripplesCount: 3,
+                    minRadius: 20,
+                    color: Colors.pink,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.pink.withOpacity(0.8),
+                      child: const Icon(
+                        Icons.favorite,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const Spacer(),
-            const BottomNavbarFloatingAnimation(),
-            const SizedBox(width: double.infinity),
-          ],
-        ),
+          ),
+          const Spacer(),
+          const BottomNavbarFloatingAnimation(),
+          const SizedBox(width: double.infinity),
+        ],
       ),
     );
   }

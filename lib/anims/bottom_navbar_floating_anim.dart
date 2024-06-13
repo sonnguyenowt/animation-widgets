@@ -13,6 +13,7 @@ class BottomNavbarFloatingAnimation extends StatefulWidget {
 class _BottomNavbarFloatingAnimationState
     extends State<BottomNavbarFloatingAnimation> {
   bool isExpanded = false;
+  double bottom = 50;
 
   var items = [
     Icons.home,
@@ -27,10 +28,11 @@ class _BottomNavbarFloatingAnimationState
         alignment: Alignment.bottomCenter,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 400),
               turns: isExpanded ? 0 : 0.5,
+              curve: Curves.fastOutSlowIn,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
@@ -46,10 +48,11 @@ class _BottomNavbarFloatingAnimationState
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 400),
               turns: isExpanded ? -0.5 : 0.5,
+              curve: Curves.fastOutSlowIn,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
@@ -65,10 +68,11 @@ class _BottomNavbarFloatingAnimationState
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 400),
               turns: isExpanded ? 0 : -0.5,
+              curve: Curves.fastOutSlowIn,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
@@ -149,8 +153,9 @@ class _BottomNavbarFloatingAnimationState
           ),
           Container(
             decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Colors.white,
             ),
+            height: 80,
             child: Row(
               children: [
                 for (var i = 0; i < items.length / 2; i++)
@@ -162,7 +167,7 @@ class _BottomNavbarFloatingAnimationState
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 10),
+            padding: EdgeInsets.only(bottom: bottom - 30 / 2),
             child: InkWell(
               onTap: () {
                 setState(() {
@@ -170,6 +175,7 @@ class _BottomNavbarFloatingAnimationState
                 });
               },
               child: const CircleAvatar(
+                radius: 30,
                 child: Icon(Icons.add),
               ),
             ),
