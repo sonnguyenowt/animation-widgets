@@ -21,6 +21,7 @@ class _BottomNavbarFloatingAnimationState
     Icons.notifications_active,
     Icons.person,
   ];
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -30,15 +31,15 @@ class _BottomNavbarFloatingAnimationState
           Padding(
             padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
-              duration: const Duration(milliseconds: 400),
-              turns: isExpanded ? 0 : 0.5,
-              curve: Curves.fastOutSlowIn,
+              duration: const Duration(milliseconds: 100),
+              turns: isExpanded ? -0.5 : 0,
+              curve: Curves.easeInOutCubicEmphasized,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
                 height: 100,
                 decoration: const BoxDecoration(
-                  color: Colors.red,
+                  color: Colors.pink,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(100),
                     topRight: Radius.circular(100),
@@ -51,8 +52,8 @@ class _BottomNavbarFloatingAnimationState
             padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 400),
-              turns: isExpanded ? -0.5 : 0.5,
-              curve: Curves.fastOutSlowIn,
+              turns: isExpanded ? -0.5 : 0.0,
+              curve: Curves.easeInOutCubicEmphasized,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
@@ -70,15 +71,15 @@ class _BottomNavbarFloatingAnimationState
           Padding(
             padding: EdgeInsets.only(bottom: bottom),
             child: AnimatedRotation(
-              duration: const Duration(milliseconds: 400),
-              turns: isExpanded ? 0 : -0.5,
-              curve: Curves.fastOutSlowIn,
+              duration: const Duration(milliseconds: 800),
+              turns: isExpanded ? -0.5 : 0,
+              curve: Curves.easeInOutCubicEmphasized,
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: 200,
                 height: 100,
                 decoration: const BoxDecoration(
-                  color: Colors.pink,
+                  color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(100),
                     topRight: Radius.circular(100),
@@ -100,7 +101,7 @@ class _BottomNavbarFloatingAnimationState
                               onPressed: () {},
                               icon: const Icon(
                                 Icons.camera_outlined,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                             )
                           ],
@@ -119,7 +120,7 @@ class _BottomNavbarFloatingAnimationState
                               onPressed: () {},
                               icon: const Icon(
                                 Icons.qr_code,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                             )
                           ],
@@ -139,7 +140,7 @@ class _BottomNavbarFloatingAnimationState
                               onPressed: () {},
                               icon: const Icon(
                                 Icons.cabin_sharp,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                             )
                           ],
@@ -167,7 +168,7 @@ class _BottomNavbarFloatingAnimationState
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: bottom - 30 / 2),
+            padding: EdgeInsets.only(bottom: (bottom + 15) / 2),
             child: InkWell(
               onTap: () {
                 setState(() {
@@ -176,7 +177,11 @@ class _BottomNavbarFloatingAnimationState
               },
               child: const CircleAvatar(
                 radius: 30,
-                child: Icon(Icons.add),
+                backgroundColor: Colors.pink,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
